@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CRUD-RegistrationForm/static/css/main.dcce93d8.css",
+    "main.js": "/CRUD-RegistrationForm/static/js/main.7fd5a060.js",
+    "index.html": "/CRUD-RegistrationForm/index.html",
+    "main.dcce93d8.css.map": "/CRUD-RegistrationForm/static/css/main.dcce93d8.css.map",
+    "main.7fd5a060.js.map": "/CRUD-RegistrationForm/static/js/main.7fd5a060.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dcce93d8.css",
+    "static/js/main.7fd5a060.js"
+  ]
+}
