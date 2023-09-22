@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useSelector } from "react-redux";
 import { removeData,updateData} from "../features/registrationSlice";
 import { useDispatch } from "react-redux";
@@ -14,6 +14,19 @@ export default function Table() {
     email: "",
    
   });
+const getLocalItems=()=>{
+  let list =localStorage.getItem("list")
+  console.log(list)
+  if (list){
+    return JSON.parse(localStorage.getItem('list'))
+  }else{
+    return []
+  }
+}
+const state=useSelector(state=>state) 
+useEffect(()=>{
+   localStorage.setItem("list",JSON.stringify(state.data));
+},[state.data])
   return (
     <div className="basis-1/2 p-5 shadow-sm rounded ">
       <table className="border border-separate border-spacing-* border-slate-400 ">
@@ -68,7 +81,7 @@ export default function Table() {
                     </button>
                     <button
                       onClick={() => {
-                        dispatch(removeData(ele.id,...newformData));
+                        dispatch(removeData(ele.id,));
                       }}
                       className="bg-neutral-400 hover:bg-neutral-600 w-17 h-12 rounded text-white font-bold py-2 px-4"
                     >

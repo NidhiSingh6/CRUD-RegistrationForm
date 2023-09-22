@@ -4,6 +4,7 @@ import './App.css';
 import RegistrationForm from './components/RegistrationForm';
 import Table from './components/Table';
 
+localStorage.clear()
 function App() {
   return (
     <div className="flex items-center justify-around">

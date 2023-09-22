@@ -2,7 +2,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    data: []
+    data: JSON.parse(localStorage?.getItem('data')??"[]")
 }
 
 
@@ -16,9 +16,11 @@ export const registrationSlice = createSlice({
                 ...action.payload
             }
             state.data.push(temp)
+localStorage?.setItem('data',JSON.stringify(state.data))
         },
         removeData: (state, action) => {
             state.data = state.data.filter(f => f.id !== action.payload)
+localStorage?.setItem('data',JSON.stringify(state.data))
         },
         updateData:(state,action) =>{
             console.log("dfgh",action.payload)
@@ -29,9 +31,9 @@ export const registrationSlice = createSlice({
                     state.data[0].lastName=action.payload.newformData.lastName
                 }
             })
+localStorage?.setItem('data',JSON.stringify(state.data))
         }
     }
 })
-
 export const { addData, removeData,updateData} = registrationSlice.actions;
 export default registrationSlice.reducer;
